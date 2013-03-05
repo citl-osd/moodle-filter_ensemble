@@ -1,4 +1,4 @@
-ev-moodle
-=========
+moodle-filter_ensemble
+======================
 
-Ensemble Video Moodle Plugin
+Ensemble Video Moodle Filter Plugin

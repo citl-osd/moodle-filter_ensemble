@@ -1,6 +1,6 @@
 <?php
 
-//  Converts repo-generated urls or stock ensemble code to ATLAS player code
+//  Converts arbitrary EV urls into appropriate embed codes.
 //
 //  Copyright (C) 2012 Liam Moran, Nathan Baxley
 //  University of Illinois
@@ -25,33 +25,34 @@ defined('MOODLE_INTERNAL') || die();
 
 class filter_ensemble extends moodle_text_filter {
 
-	public function filter($text, array $options = array()) {
-		return $text;
-		// global $CFG;
+  public function filter($text, array $options = array()) {
+    global $CFG;
 
-		// // FIXME - would I ever want it disabled?  Is this necessary?
-		// if (!isset($CFG->filter_ensemble_enable)) {
-		// 	set_config('filter_ensemble_enable', '');
-		// }
+    // FIXME - would I ever want it disabled?  Is this necessary?
+    // if (!isset($CFG->filter_ensemble_enable)) {
+    // 	set_config('filter_ensemble_enable', '');
+    // }
 
-	 //  $newtext = $text;
-  //   if ($CFG->filter_ensemble_enable) {
-	 //    $search = '#<a href="http(s)?://plugin.moodle.ensemblevideo.com?([^"]*)".*</a>#is';
-  //   	$newtext = preg_replace_callback($search, array('filter_ensemble', 'callback'), $newtext);
-  //   }
+    $newtext = $text;
+    // if ($CFG->filter_ensemble_enable) {
+      $search = '#<a href="http(s)?://plugin.moodle.ensemblevideo.com\?([^"]*)".*</a>#is';
+      $newtext = preg_replace_callback($search, array('filter_ensemble', 'callback'), $newtext);
+    // }
 
-  //   if (is_null($newtext) or $newtext === $text) {
-  //     // error or not filtered
-  //   	return $text;
-  //   }
+    if (is_null($newtext) or $newtext === $text) {
+      // error or not filtered
+      return $text;
+    }
 
-  //   return $newtext;
+    return $newtext;
   }
 
- //  private function callback($matches) {
- //  	print_r($matches);
- //  	return 'foo';
- //  	// FIXME - need to grab ensemble url from configuration
-	// }
+  private function callback($matches) {
+    $settings = array();
+    parse_str(html_entity_decode(urldecode($matches[2])), $settings);
+    // FIXME - need to grab ensemble url from configuration
+    $source = 'https://cloud.ensemblevideo.com//app/plugin/embed.aspx?ID=' . $settings['id'] . '&autoPlay=' . $settings['autoplay'] . '&displayTitle=' . $settings['showtitle'] . '&hideControls=' . $settings['hidecontrols'] . '&showCaptions=' . $settings['showcaptions'] . '&width=' . $settings['width'] . '&height=' . $settings['height'];
+    return '<iframe src="' . $source . '" frameborder="0" style="width: ' . $settings['width'] . 'px;height:' . ($settings['height'] + 56) . 'px;" allowfullscreen></iframe>';
+  }
 
 }
