@@ -28,16 +28,9 @@ class filter_ensemble extends moodle_text_filter {
   public function filter($text, array $options = array()) {
     global $CFG;
 
-    // FIXME - would I ever want it disabled?  Is this necessary?
-    // if (!isset($CFG->filter_ensemble_enable)) {
-    // 	set_config('filter_ensemble_enable', '');
-    // }
-
     $newtext = $text;
-    // if ($CFG->filter_ensemble_enable) {
-      $search = '#<a href="http(s)?://plugin.moodle.ensemblevideo.com\?([^"]*)".*</a>#is';
-      $newtext = preg_replace_callback($search, array('filter_ensemble', 'callback'), $newtext);
-    // }
+    $search = '#<a href="http(s)?://plugin.moodle.ensemblevideo.com\?([^"]*)".*</a>#is';
+    $newtext = preg_replace_callback($search, array('filter_ensemble', 'callback'), $newtext);
 
     if (is_null($newtext) or $newtext === $text) {
       // error or not filtered
@@ -50,8 +43,8 @@ class filter_ensemble extends moodle_text_filter {
   private function callback($matches) {
     $settings = array();
     parse_str(html_entity_decode(urldecode($matches[2])), $settings);
-    // FIXME - need to grab ensemble url from configuration
-    $source = 'https://cloud.ensemblevideo.com//app/plugin/embed.aspx?ID=' . $settings['id'] . '&autoPlay=' . $settings['autoplay'] . '&displayTitle=' . $settings['showtitle'] . '&hideControls=' . $settings['hidecontrols'] . '&showCaptions=' . $settings['showcaptions'] . '&width=' . $settings['width'] . '&height=' . $settings['height'];
+    $ensembleURL = get_config('ensemble', 'ensembleURL');
+    $source = $ensembleURL . '/app/plugin/embed.aspx?ID=' . $settings['id'] . '&autoPlay=' . $settings['autoplay'] . '&displayTitle=' . $settings['showtitle'] . '&hideControls=' . $settings['hidecontrols'] . '&showCaptions=' . $settings['showcaptions'] . '&width=' . $settings['width'] . '&height=' . $settings['height'];
     return '<iframe src="' . $source . '" frameborder="0" style="width: ' . $settings['width'] . 'px;height:' . ($settings['height'] + 56) . 'px;" allowfullscreen></iframe>';
   }
 
