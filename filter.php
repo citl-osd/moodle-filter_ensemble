@@ -33,7 +33,6 @@ class filter_ensemble extends moodle_text_filter {
     $newtext = preg_replace_callback($search, array('filter_ensemble', 'callback'), $newtext);
 
     if (is_null($newtext) or $newtext === $text) {
-      // error or not filtered
       return $text;
     }
 
@@ -45,8 +44,10 @@ class filter_ensemble extends moodle_text_filter {
     parse_str(html_entity_decode(urldecode($matches[2])), $settings);
     $ensembleURL = get_config('ensemble', 'ensembleURL');
     if ($settings['type'] === 'video') {
-      $source = $ensembleURL . '/app/plugin/embed.aspx?ID=' . $settings['id'] . '&autoPlay=' . $settings['autoplay'] . '&displayTitle=' . $settings['showtitle'] . '&hideControls=' . $settings['hidecontrols'] . '&showCaptions=' . $settings['showcaptions'] . '&width=' . $settings['width'] . '&height=' . $settings['height'];
-      return '<iframe src="' . $source . '" frameborder="0" style="width: ' . $settings['width'] . 'px;height:' . ($settings['height'] + 56) . 'px;" allowfullscreen></iframe>';
+      $width = isset($settings['width']) ? $settings['width'] : 640;
+      $height = isset($settings['height']) ? $settings['height'] : 360;
+      $source = $ensembleURL . '/app/plugin/embed.aspx?ID=' . $settings['id'] . '&autoPlay=' . $settings['autoplay'] . '&displayTitle=' . $settings['showtitle'] . '&hideControls=' . $settings['hidecontrols'] . '&showCaptions=' . $settings['showcaptions'] . '&width=' . $width . '&height=' . $height;
+      return '<iframe src="' . $source . '" frameborder="0" style="width: ' . $width . 'px;height:' . ($height + 56) . 'px;" allowfullscreen></iframe>';
     } else if ($settings['type'] === 'playlist') {
       $source = $ensembleURL . '/app/plugin/embed.aspx?DestinationID=' . $settings['id'];
       return '<iframe src="' . $source . '" frameborder="0" style="width:800px;height:850px;" allowfullscreen></iframe>';

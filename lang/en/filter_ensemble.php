@@ -1,3 +1,3 @@
 <?php
 
-$string['filtername'] = 'Ensemble Video Filter';
+$string['filtername'] = 'Ensemble Video filter';
