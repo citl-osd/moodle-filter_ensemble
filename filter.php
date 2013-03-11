@@ -23,14 +23,24 @@
 
 defined('MOODLE_INTERNAL') || die();
 
+require_once(dirname(dirname(dirname(__FILE__))) . '/repository/lib.php');
+
 class filter_ensemble extends moodle_text_filter {
+
+  private $ensembleUrl;
 
   public function filter($text, array $options = array()) {
     global $CFG;
 
     $newtext = $text;
-    $search = '#<a href="http(s)?://plugin.moodle.ensemblevideo.com\?([^"]*)".*</a>#isU';
-    $newtext = preg_replace_callback($search, array('filter_ensemble', 'callback'), $newtext);
+
+    $instances = repository::get_instances(array('type' => 'ensemble'));
+
+    foreach ($instances as $instance) {
+      $this->ensembleUrl = $instance->options['ensembleURL'];
+      $search = '#<a href="' . $this->ensembleUrl . '\?([^"]*)".*</a>#isU';
+      $newtext = preg_replace_callback($search, array('filter_ensemble', 'callback'), $newtext);
+    }
 
     if (is_null($newtext) or $newtext === $text) {
       return $text;
@@ -41,16 +51,17 @@ class filter_ensemble extends moodle_text_filter {
 
   private function callback($matches) {
     $settings = array();
-    parse_str(html_entity_decode(urldecode($matches[2])), $settings);
-    $ensembleURL = get_config('ensemble', 'ensembleURL');
-    if ($settings['type'] === 'video') {
-      $width = isset($settings['width']) ? $settings['width'] : 640;
-      $height = isset($settings['height']) ? $settings['height'] : 360;
-      $source = $ensembleURL . '/app/plugin/embed.aspx?ID=' . $settings['id'] . '&autoPlay=' . $settings['autoplay'] . '&displayTitle=' . $settings['showtitle'] . '&hideControls=' . $settings['hidecontrols'] . '&showCaptions=' . $settings['showcaptions'] . '&width=' . $width . '&height=' . $height;
-      return '<iframe src="' . $source . '" frameborder="0" style="width: ' . $width . 'px;height:' . ($height + 56) . 'px;" allowfullscreen></iframe>';
-    } else if ($settings['type'] === 'playlist') {
-      $source = $ensembleURL . '/app/plugin/embed.aspx?DestinationID=' . $settings['id'];
-      return '<iframe src="' . $source . '" frameborder="0" style="width:800px;height:850px;" allowfullscreen></iframe>';
+    parse_str(html_entity_decode(urldecode($matches[1])), $settings);
+    if (isset($settings['type'])) {
+      if ($settings['type'] === 'video') {
+        $width = isset($settings['width']) ? $settings['width'] : 640;
+        $height = isset($settings['height']) ? $settings['height'] : 360;
+        $source = $this->ensembleUrl . '/app/plugin/embed.aspx?ID=' . $settings['id'] . '&autoPlay=' . $settings['autoplay'] . '&displayTitle=' . $settings['showtitle'] . '&hideControls=' . $settings['hidecontrols'] . '&showCaptions=' . $settings['showcaptions'] . '&width=' . $width . '&height=' . $height;
+        return '<iframe src="' . $source . '" frameborder="0" style="width: ' . $width . 'px;height:' . ($height + 56) . 'px;" allowfullscreen></iframe>';
+      } else if ($settings['type'] === 'playlist') {
+        $source = $this->ensembleUrl . '/app/plugin/embed.aspx?DestinationID=' . $settings['id'];
+        return '<iframe src="' . $source . '" frameborder="0" style="width:800px;height:850px;" allowfullscreen></iframe>';
+      }
     }
   }
 
