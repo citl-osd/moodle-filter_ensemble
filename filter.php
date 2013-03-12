@@ -34,10 +34,16 @@ class filter_ensemble extends moodle_text_filter {
 
     $newtext = $text;
 
-    $instances = repository::get_instances(array('type' => 'ensemble'));
+    if (!isset($CFG->filter_ensemble_urls)) {
+      set_config('filter_ensemble_urls', '');
+    }
 
-    foreach ($instances as $instance) {
-      $this->ensembleUrl = $instance->options['ensembleURL'];
+    $urls = explode(',', $CFG->filter_ensemble_urls);
+    // Add the currently configured repository url
+    $urls[] = get_config('ensemble', 'ensembleURL');
+
+    foreach ($urls as $url) {
+      $this->ensembleUrl = trim($url);
       $search = '#<a href="' . $this->ensembleUrl . '\?([^"]*)".*</a>#isU';
       $newtext = preg_replace_callback($search, array('filter_ensemble', 'callback'), $newtext);
     }
