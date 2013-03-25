@@ -44,7 +44,7 @@ class filter_ensemble extends moodle_text_filter {
 
     foreach ($urls as $url) {
       $this->ensembleUrl = trim($url);
-      $search = '#<a href="' . $this->ensembleUrl . '\?([^"]*)".*</a>#isU';
+      $search = '#<a [^>]*href="' . $this->ensembleUrl . '\?([^"]*)".*</a>#isU';
       $newtext = preg_replace_callback($search, array('filter_ensemble', 'callback'), $newtext);
     }
 
