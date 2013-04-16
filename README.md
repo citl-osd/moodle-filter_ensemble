@@ -8,10 +8,12 @@ having to navigate to Ensemble Video and copy/paste complicated embed codes.  Th
 plugin filters content to render urls added by the repository plugin as Ensemble Video
 embed codes.
 
+**Note:** This plugin requires an Ensemble Video version of 3.4 or higher.
+
 ### Installing from Git
 
 These installation instructions are based off the strategy endorsed by Moodle
-for [installing contibuted extensions via Git](http://docs.moodle.org/24/en/Git_for_Administrators#Installing_a_contributed_extension_from_its_Git_repository).
+for [installing contributed extensions via Git](http://docs.moodle.org/24/en/Git_for_Administrators#Installing_a_contributed_extension_from_its_Git_repository).
 
     $ cd /path/to/your/moodle
     $ cd filter
