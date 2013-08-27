@@ -11,7 +11,7 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$plugin->version        = 2013040900;
-$plugin->requires       = 2012062500;
+$plugin->version        = 2013082800;
+$plugin->requires       = 2013051400;
 $plugin->component      = 'filter_ensemble';
-$plugin->dependencies   = array('repository_ensemble' => 2013040900);
+$plugin->dependencies   = array('repository_ensemble' => 2013082800);
