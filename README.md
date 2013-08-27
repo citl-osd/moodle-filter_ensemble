@@ -22,7 +22,7 @@ and [Using the Moodle Plugin](http://support.ensemblevideo.com/using-the-moodle-
 ### <a id="req"></a>Requirements
 
 * Ensemble Video version of 3.4 or higher.
-* Moodle version 2.3 or higher.
+* Moodle version 2.5 or higher.
 * Depends on the [Ensemble Video Moodle Repository Plugin](https://github.com/jmpease/moodle-repository_ensemble) for searching and choosing videos and playlists.
 
 ### <a id="git_install"></a>Installing from Git
@@ -34,7 +34,7 @@ for [installing contributed extensions via Git](http://docs.moodle.org/24/en/Git
     $ cd filter
     $ git clone https://github.com/jmpease/moodle-filter_ensemble.git ensemble
     $ cd ensemble
-    $ git checkout -b MOODLE_24_STABLE origin/MOODLE_24_STABLE
+    $ git checkout -b MOODLE_25_STABLE origin/MOODLE_25_STABLE
 
 As a Moodle administrator, navigate to _Settings -> Site Administration -> Notifications_
 and click _Upgrade Moodle database now_ to install the plugin.
@@ -51,9 +51,9 @@ and click _Upgrade Moodle database now_ to upgrade the plugin.
 
 ### <a id="zip_install"></a>Installing from ZIP
 
-    $ wget https://github.com/jmpease/moodle-filter_ensemble/archive/MOODLE_24_STABLE.zip
-    $ unzip MOODLE_24_STABLE.zip
-    $ mv moodle-filter_ensemble-MOODLE_24_STABLE /path/to/your/moodle/filter/ensemble
+    $ wget https://github.com/jmpease/moodle-filter_ensemble/archive/MOODLE_25_STABLE.zip
+    $ unzip MOODLE_25_STABLE.zip
+    $ mv moodle-filter_ensemble-MOODLE_25_STABLE /path/to/your/moodle/filter/ensemble
 
 As a Moodle administrator, navigate to _Settings -> Site Administration -> Notifications_
 and click _Upgrade Moodle database now_ to install the plugin.
