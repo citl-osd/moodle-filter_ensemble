@@ -69,7 +69,7 @@ class filter_ensemble extends moodle_text_filter {
         return '<iframe src="' . $source . '" frameborder="0" style="width: ' . $width . 'px;height:' . ($height + 56) . 'px;" allowfullscreen></iframe>';
       } else if ($settings['type'] === 'playlist') {
         $source = $this->ensembleUrl . '/app/plugin/embed.aspx?DestinationID=' . $settings['id'];
-        return '<iframe src="' . $source . '" frameborder="0" style="width:800px;height:850px;" allowfullscreen></iframe>';
+        return '<iframe src="' . $source . '" frameborder="0" style="width:800px;height:1000px;" allowfullscreen></iframe>';
       }
     }
   }
