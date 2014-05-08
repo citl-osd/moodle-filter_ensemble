@@ -10,7 +10,7 @@ __[Plugin Setup](#setup)__<br/>
 
 ### <a id="overview"></a>Overview
 
-Along with the [Ensemble Video Moodle Repository Plugin](https://github.com/jmpease/moodle-repository_ensemble), this plugin
+Along with the [Ensemble Video Moodle Repository Plugin](https://github.com/ensembleVideo/moodle-repository_ensemble), this plugin
 makes it easier for Moodle users to add videos and playlists to content without
 having to navigate to Ensemble Video and copy/paste complicated embed codes.  This
 plugin filters content to render urls added by the repository plugin as Ensemble Video
@@ -23,7 +23,7 @@ and [Using the Moodle Plugin](http://support.ensemblevideo.com/using-the-moodle-
 
 * Ensemble Video version of 3.4 or higher.
 * Moodle version 2.6 or higher.
-* Depends on the [Ensemble Video Moodle Repository Plugin](https://github.com/jmpease/moodle-repository_ensemble) for searching and choosing videos and playlists.
+* Depends on the [Ensemble Video Moodle Repository Plugin](https://github.com/ensembleVideo/moodle-repository_ensemble) for searching and choosing videos and playlists.
 
 ### <a id="git_install"></a>Installing from Git
 
@@ -32,7 +32,7 @@ for [installing contributed extensions via Git](http://docs.moodle.org/26/en/Git
 
     $ cd /path/to/your/moodle
     $ cd filter
-    $ git clone https://github.com/jmpease/moodle-filter_ensemble.git ensemble
+    $ git clone https://github.com/ensembleVideo/moodle-filter_ensemble.git ensemble
     $ cd ensemble
     $ git checkout -b MOODLE_26_STABLE origin/MOODLE_26_STABLE
 
@@ -51,7 +51,7 @@ and click _Upgrade Moodle database now_ to upgrade the plugin.
 
 ### <a id="zip_install"></a>Installing from ZIP
 
-    $ wget https://github.com/jmpease/moodle-filter_ensemble/archive/MOODLE_26_STABLE.zip
+    $ wget https://github.com/ensembleVideo/moodle-filter_ensemble/archive/MOODLE_26_STABLE.zip
     $ unzip MOODLE_26_STABLE.zip
     $ mv moodle-filter_ensemble-MOODLE_26_STABLE /path/to/your/moodle/filter/ensemble
 
@@ -77,7 +77,7 @@ and change the _Active?_ setting for the Ensemble Video filter from _Disabled_ t
 ##### Ensemble Urls
 
 Optional.  By default this plugin will use the Ensemble URL configured in the corresponding
-[repository plugin](https://github.com/jmpease/moodle-repository_ensemble) so, typically,
+[repository plugin](https://github.com/ensembleVideo/moodle-repository_ensemble) so, typically,
 nothing needs to be added here.  In order to render embed codes this plugin filters content
 that contains this url.  If for some reason, however, the configured Ensemble URL has changed
 after content has already been added, you can add entries here to tell the plugin which
