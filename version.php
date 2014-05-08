@@ -31,6 +31,6 @@ defined('MOODLE_INTERNAL') || die();
 $plugin->version        = 2013040901;
 $plugin->release        = '2.4 (Build: 2013040901)';
 $plugin->maturity       = MATURITY_STABLE;
-$plugin->requires       = 2012062500;
+$plugin->requires       = 2012110900;
 $plugin->component      = 'filter_ensemble';
 $plugin->dependencies   = array('repository_ensemble' => 2013040900);
