@@ -21,7 +21,7 @@ and [Using the Moodle Plugin](http://support.ensemblevideo.com/using-the-moodle-
 
 ### <a id="req"></a>Requirements
 
-* Ensemble Video version of 3.4 or higher.
+* Ensemble Video version of 4.3 or higher.
 * Moodle version 3.0 or higher.
 * Depends on the [Ensemble Video Moodle Repository Plugin](https://github.com/ensembleVideo/moodle-repository_ensemble) for searching and choosing videos and playlists.
 
