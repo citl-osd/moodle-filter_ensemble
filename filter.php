@@ -30,7 +30,7 @@ require_once(dirname(dirname(dirname(__FILE__))) . '/repository/lib.php');
 
 class filter_ensemble extends moodle_text_filter {
 
-    private $ensembleUrl;
+    private $ensembleurl;
 
     public function filter($text, array $options = array()) {
         global $CFG;
@@ -43,10 +43,10 @@ class filter_ensemble extends moodle_text_filter {
 
         $urls = explode(',', $CFG->filter_ensemble_urls);
 
-        // TODO - not sure about context here
+        // TODO - not sure about context here.
         $repos = repository::get_instances(array('type' => 'ensemble'));
 
-        // Add the currently configured repository urls for this context
+        // Add the currently configured repository urls for this context.
         foreach ($repos as $repo) {
             $urls[] = $repo->get_option('ensembleURL');
         }
@@ -73,8 +73,11 @@ class filter_ensemble extends moodle_text_filter {
             if ($settings['type'] === 'video') {
                 $width = isset($settings['width']) ? $settings['width'] : 640;
                 $height = isset($settings['height']) ? $settings['height'] : 360;
-                $source = $this->ensembleUrl . '/app/plugin/embed.aspx?ID=' . $settings['id'] . '&autoPlay=' . $settings['autoplay'] . '&displayTitle=' . $settings['showtitle'] . '&hideControls=' . $settings['hidecontrols'] . '&showCaptions=' . $settings['showcaptions'] . '&width=' . $width . '&height=' . $height;
-                return '<iframe src="' . $source . '" frameborder="0" style="width: ' . $width . 'px;height:' . ($height + 56) . 'px;" allowfullscreen></iframe>';
+                $source = $this->ensembleUrl . '/app/plugin/embed.aspx?ID=' . $settings['id'] . '&autoPlay='
+                . $settings['autoplay'] . '&displayTitle=' . $settings['showtitle'] . '&hideControls=' . $settings['hidecontrols']
+                . '&showCaptions=' . $settings['showcaptions'] . '&width=' . $width . '&height=' . $height;
+                return '<iframe src="' . $source . '" frameborder="0" style="width: ' . $width . 'px;height:' . ($height + 56)
+                . 'px;" allowfullscreen></iframe>';
             } else if ($settings['type'] === 'playlist') {
                 $source = $this->ensembleUrl . '/app/plugin/embed.aspx?DestinationID=' . $settings['id'];
                 return '<iframe src="' . $source . '" frameborder="0" style="width:800px;height:1000px;" allowfullscreen></iframe>';
