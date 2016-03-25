@@ -43,8 +43,10 @@ class filter_ensemble extends moodle_text_filter {
 
         $urls = explode(',', $CFG->filter_ensemble_urls);
 
-        // TODO - not sure about context here.
-        $repos = repository::get_instances(array('type' => 'ensemble'));
+        $repos = repository::get_instances(array(
+            'currentcontext' => $this->context,
+            'type' => 'ensemble'
+        ));
 
         // Add the currently configured repository urls for this context.
         foreach ($repos as $repo) {
