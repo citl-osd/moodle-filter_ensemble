@@ -21,9 +21,7 @@ and [Using the Moodle Plugin](http://support.ensemblevideo.com/using-the-moodle-
 
 ### <a id="req"></a>Requirements
 
-* Ensemble Video version of 4.3 or higher.
 * Moodle version 3.0 or higher.
-* Depends on the [Ensemble Video Moodle Repository Plugin](https://github.com/ensembleVideo/moodle-repository_ensemble) for searching and choosing videos and playlists.
 
 ### <a id="git_install"></a>Installing from Git
 
@@ -76,9 +74,10 @@ and change the _Active?_ setting for the Ensemble Video filter from _Disabled_ t
 
 ##### Ensemble Urls
 
-Optional.  By default this plugin will use the Ensemble URL configured in the corresponding
-[repository plugin](https://github.com/ensembleVideo/moodle-repository_ensemble) so, typically,
-nothing needs to be added here.  In order to render embed codes this plugin filters content
-that contains this url.  If for some reason, however, the configured Ensemble URL has changed
-after content has already been added, you can add entries here to tell the plugin which
-additional urls to filter.
+Optional.  By default this plugin will use the Ensemble URL configured in the
+corresponding [repository plugin](https://github.com/ensembleVideo/moodle-repository_ensemble)
+instances so, typically, nothing needs to be added here.  In order to render
+embed codes this plugin filters content that contains these urls.  If for some
+reason, however, any configured Ensemble URL has changed after content has
+already been added, you can add entries here to tell the plugin which additional
+urls to filter.
