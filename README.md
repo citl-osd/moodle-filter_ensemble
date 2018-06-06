@@ -21,18 +21,18 @@ and [Using the Moodle Plugin](http://support.ensemblevideo.com/using-the-moodle-
 
 ### <a id="req"></a>Requirements
 
-* Moodle version 3.4 or higher.
+* Moodle version 3.5 or higher.
 
 ### <a id="git_install"></a>Installing from Git
 
 These installation instructions are based off the strategy endorsed by Moodle
-for [installing contributed extensions via Git](http://docs.moodle.org/34/en/Git_for_Administrators#Installing_a_contributed_extension_from_its_Git_repository).
+for [installing contributed extensions via Git](http://docs.moodle.org/35/en/Git_for_Administrators#Installing_a_contributed_extension_from_its_Git_repository).
 
     $ cd /path/to/your/moodle
     $ cd filter
     $ git clone https://github.com/ensembleVideo/moodle-filter_ensemble.git ensemble
     $ cd ensemble
-    $ git checkout -b MOODLE_34_STABLE origin/MOODLE_34_STABLE
+    $ git checkout -b MOODLE_35_STABLE origin/MOODLE_35_STABLE
 
 As a Moodle administrator, navigate to _Settings -> Site Administration -> Notifications_
 and click _Upgrade Moodle database now_ to install the plugin.
@@ -49,9 +49,9 @@ and click _Upgrade Moodle database now_ to upgrade the plugin.
 
 ### <a id="zip_install"></a>Installing from ZIP
 
-    $ wget https://github.com/ensembleVideo/moodle-filter_ensemble/archive/MOODLE_34_STABLE.zip
-    $ unzip MOODLE_34_STABLE.zip
-    $ mv moodle-filter_ensemble-MOODLE_34_STABLE /path/to/your/moodle/filter/ensemble
+    $ wget https://github.com/ensembleVideo/moodle-filter_ensemble/archive/MOODLE_35_STABLE.zip
+    $ unzip MOODLE_35_STABLE.zip
+    $ mv moodle-filter_ensemble-MOODLE_35_STABLE /path/to/your/moodle/filter/ensemble
 
 As a Moodle administrator, navigate to _Settings -> Site Administration -> Notifications_
 and click _Upgrade Moodle database now_ to install the plugin.
