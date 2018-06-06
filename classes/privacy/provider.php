@@ -14,17 +14,33 @@
 // You should have received a copy of the GNU General Public License
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
-
 /**
- * Ensemble Video filter plugin.
+ * Privacy Subsystem implementation for filter_ensemble.
  *
  * @package    filter_ensemble
- * @copyright  2012 Liam Moran, Nathan Baxley, University of Illinois
- *             2013 Symphony Video, Inc.
+ * @copyright  2018 Symphony Video, Inc.
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-$string['filtername']       = 'Ensemble Video filter';
-$string['urls']             = 'Ensemble Urls';
-$string['urls_desc']        = '(Optional) Comma-delimited list of additional urls to filter.  This is useful if the corresponding repository Ensemble Url is different or has changed.';
-$string['privacy:metadata'] = 'The Ensemble Video filter plugin does not store any personal data.';
+namespace filter_ensemble\privacy;
+
+defined('MOODLE_INTERNAL') || die();
+
+/**
+ * Privacy Subsystem for filter_ensemble implementing null_provider.
+ *
+ * @copyright  2018 Symphony Video, Inc.
+ * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ */
+class provider implements \core_privacy\local\metadata\null_provider {
+
+    /**
+     * Get the language string identifier with the component's language
+     * file to explain why this plugin stores no data.
+     *
+     * @return  string
+     */
+    public static function get_reason() : string {
+        return 'privacy:metadata';
+    }
+}
