@@ -32,8 +32,8 @@ for [installing contributed extensions via Git](http://docs.moodle.org/35/en/Git
 
     $ cd /path/to/your/moodle
     $ cd filter
-    $ git clone https://github.com/ensembleVideo/moodle-filter_ensemble.git ensemble
-    $ cd ensemble
+    $ git clone https://github.com/citl-osd/moodle-filter_ensemble.git ensemblevideo
+    $ cd ensemblevideo
     $ git checkout -b MOODLE_35_STABLE origin/MOODLE_35_STABLE
 
 As a Moodle administrator, navigate to _Settings -> Site Administration -> Notifications_
@@ -43,7 +43,7 @@ and click _Upgrade Moodle database now_ to install the plugin.
 
 To upgrade the plugin do the following:
 
-    $ cd /path/to/your/moodle/filter/ensemble
+    $ cd /path/to/your/moodle/filter/ensemblevideo
     $ git pull
 
 As a Moodle administrator, navigate to _Settings -> Site Administration -> Notifications_
@@ -53,7 +53,7 @@ and click _Upgrade Moodle database now_ to upgrade the plugin.
 
     $ wget https://github.com/ensembleVideo/moodle-filter_ensemble/archive/MOODLE_35_STABLE.zip
     $ unzip MOODLE_35_STABLE.zip
-    $ mv moodle-filter_ensemble-MOODLE_35_STABLE /path/to/your/moodle/filter/ensemble
+    $ mv moodle-filter_ensemble-MOODLE_35_STABLE /path/to/your/moodle/filter/ensemblevideo
 
 As a Moodle administrator, navigate to _Settings -> Site Administration -> Notifications_
 and click _Upgrade Moodle database now_ to install the plugin.
@@ -61,7 +61,7 @@ and click _Upgrade Moodle database now_ to install the plugin.
 ### <a id="zip_upgrade"></a>Upgrading from ZIP
 
 To upgrade the plugin delete the
-_/path/to/your/moodle/filter/ensemble_ directory, then repeat the installation
+_/path/to/your/moodle/filter/ensemblevideo_ directory, then repeat the installation
 steps above.
 
 As a Moodle administrator, navigate to _Settings -> Site Administration -> Notifications_
@@ -77,7 +77,7 @@ and change the _Active?_ setting for the Ensemble Video filter from _Disabled_ t
 ##### Ensemble Urls
 
 Optional.  By default this plugin will use the Ensemble URL configured in the
-corresponding [repository plugin](https://github.com/ensembleVideo/moodle-repository_ensemble)
+corresponding [repository plugin](https://github.com/citl-osd/moodle-repository_ensemble)
 instances so, typically, nothing needs to be added here.  In order to render
 embed codes this plugin filters content that contains these urls.  If for some
 reason, however, any configured Ensemble URL has changed after content has
