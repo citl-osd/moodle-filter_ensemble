@@ -18,7 +18,7 @@
 /**
  * Ensemble Video filter plugin.
  *
- * @package    filter_ensemble
+ * @package    filter_ensemblevideo
  * @copyright  2012 Liam Moran, Nathan Baxley, University of Illinois
  *             2013 Symphony Video, Inc.
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later

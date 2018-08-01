@@ -10,6 +10,8 @@ __[Plugin Setup](#setup)__<br/>
 
 ### <a id="overview"></a>Overview
 
+(CITL OSD forked this project so that this vendor plugin doesn't conflict with our custom plugin)
+
 Along with the [Ensemble Video Moodle Repository Plugin](https://github.com/ensembleVideo/moodle-repository_ensemble), this plugin
 makes it easier for Moodle users to add videos and playlists to content without
 having to navigate to Ensemble Video and copy/paste complicated embed codes.  This

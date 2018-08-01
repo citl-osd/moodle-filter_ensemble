@@ -32,4 +32,4 @@ $plugin->version        = 2018060600;
 $plugin->release        = '3.5 (Build: 2018060600)';
 $plugin->maturity       = MATURITY_STABLE;
 $plugin->requires       = 2018051700;
-$plugin->component      = 'filter_ensemble';
+$plugin->component      = 'filter_ensemblevideo';

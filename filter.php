@@ -18,7 +18,7 @@
 /**
  * Ensemble Video filter plugin.
  *
- * @package    filter_ensemble
+ * @package    filter_ensemblevideo
  * @copyright  2012 Liam Moran, Nathan Baxley, University of Illinois
  *             2013 Symphony Video, Inc.
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
@@ -28,7 +28,7 @@ defined('MOODLE_INTERNAL') || die();
 
 require_once(dirname(dirname(dirname(__FILE__))) . '/repository/lib.php');
 
-class filter_ensemble extends moodle_text_filter {
+class filter_ensemblevideo extends moodle_text_filter {
 
     private $ensembleurl;
 
@@ -45,7 +45,7 @@ class filter_ensemble extends moodle_text_filter {
 
         $repos = repository::get_instances(array(
             'currentcontext' => $this->context,
-            'type' => 'ensemble'
+            'type' => 'ensemblevideo'
         ));
 
         // Add the currently configured repository urls for this context.
@@ -56,7 +56,7 @@ class filter_ensemble extends moodle_text_filter {
         foreach ($urls as $url) {
             $this->ensembleUrl = trim($url);
             $search = '#<a [^>]*href="' . $this->ensembleUrl . '\?([^"]*)".*</a>#isU';
-            $newtext = preg_replace_callback($search, array('filter_ensemble', 'callback'), $newtext);
+            $newtext = preg_replace_callback($search, array('filter_ensemblevideo', 'callback'), $newtext);
         }
 
         if (is_null($newtext) or $newtext === $text) {

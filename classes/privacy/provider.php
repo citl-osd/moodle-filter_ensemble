@@ -22,12 +22,12 @@
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-namespace filter_ensemble\privacy;
+namespace filter_ensemblevideo\privacy;
 
 defined('MOODLE_INTERNAL') || die();
 
 /**
- * Privacy Subsystem for filter_ensemble implementing null_provider.
+ * Privacy Subsystem for filter_ensemblevideo implementing null_provider.
  *
  * @copyright  2018 Symphony Video, Inc.
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
